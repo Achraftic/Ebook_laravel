@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=fallback');
+
+*{
+    transition: all 0.2s ease-in-out;
+     font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url(https://fonts.gstatic.com/s/inter/v12/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa2JL7SUc.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+li{
+    cursor: pointer;
+
+
+}
+.heroSection img{
+    height: 450px !important;
+    width: 700px;
+    border-radius: 23px;
+}
+
+.list li:hover{
+   color: #FD7014;
+
+}
+
+
+  .swiper-pagination-bullet{border: 1px solid #1da1f2;}.swiper-pagination-bullet-active{background:#1da1f2}
+  img:not([draggable]), embed, object, video {
+      max-width: 100%;
+      height: auto;
+  }
+
+  .checked {
+    color: #FD7014; }
+
+
+
+
+
+  .transition{
+    transition: all .2s ease-out;
+}
+
+
+
+.hide{
+    width: 0px;
+
+}
+.show{
+    width: 208px;
+}
+.navCategory  .active{
+
+
+background-color: #FD7014;
+color: #fff;
+}
+.navCategory  ul li:hover{
+
+
+    background-color: #FD7014;
+    color: #fff;
+    }
+.navCategory ul li{
+    border-radius: 50px;
+    padding: 5px 10px;
+}
+
+
