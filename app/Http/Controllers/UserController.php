@@ -18,7 +18,8 @@ class UserController extends Controller
     public function index()
     {
         $data =  User::where('userType', "User")->get();
-        return view('admin.user.index',compact('data'));
+         return view('admin.user.index',compact('data'));
+        // return response()->json($data);
     }
 
     /**

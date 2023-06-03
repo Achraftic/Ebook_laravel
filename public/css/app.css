@@ -2876,6 +2876,15 @@ select{
     width: 100%;
   }
 
+  .md\:w-max{
+    width: -moz-max-content;
+    width: max-content;
+  }
+
+  .md\:basis-full{
+    flex-basis: 100%;
+  }
+
   .md\:grid-cols-2{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

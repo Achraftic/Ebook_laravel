@@ -21,7 +21,7 @@ class wishListController extends Controller
             $Countdata= wishList::where('books_id',$request->books_id)->where("user_id",$request->user_id)->count();
             if($Countdata>=1){
                 wishList::where('books_id',$request->books_id)->where("user_id",$request->user_id)->delete();
-            
+
             }
             else{
                  $data->books_id = $request->books_id;
@@ -35,7 +35,7 @@ class wishListController extends Controller
 
 
 
-            return redirect()->route('books.index');
+            return redirect()->back();
           }
 
           public function delete($id)
@@ -44,7 +44,7 @@ class wishListController extends Controller
 
                 wishList::where('books_id',$id)->delete();
               }
-              return redirect()->route('books.index');
+              return redirect()->back();
 
           }
 }

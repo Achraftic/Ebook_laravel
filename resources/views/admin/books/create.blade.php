@@ -44,7 +44,7 @@
                  <select name="category" id="" class="form-input w-full border-gray-300 rounded-md">
                     <option value="" selected="" disabled  class="text-slate-500 p-2">select Category </option>
                      @foreach ($category as $item )
-               <option value=" {{$item->name}} " class="text-slate-500 p-2"> {{$item->name}} </option>
+               <option value=" {{$item->id}} " class="text-slate-500 p-2"> {{$item->name}} </option>
                      @endforeach
 
                  </select>
@@ -89,6 +89,7 @@
 
 
                     <label for="pdf" class="cursor-pointer "> Upload Pdf</label>
+                    <label for="value" id='valuPdf' class="cursor-pointer "></label>
                 </label>
             </div>
             <button class="btn rounded-md bg-orange-500 hover:bg-orange-600 text-white sm:w-[150px] w-full p-2 ">Submit</button>
@@ -98,4 +99,23 @@
 
 
     </section>
+    <script type="module" defer>
+        $(document).ready(function () {
+
+            let a=$('#pdf').val();
+            let name=a.split('\\');
+
+$('#pdf').change(function (e) {
+e.preventDefault();
+
+
+
+$('#valuPdf').html(name.pop());
+
+});
+
+$('#valuPdf').html(name.pop());
+
+        });
+        </script>
 @endsection

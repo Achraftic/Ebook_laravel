@@ -17,12 +17,19 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
+               pagination: {
+                // Customize the styles for the pagination links
+                link: 'rounded-md px-3 py-1 bg-gray-200 text-gray-700 hover:bg-gray-300',
+                activeLink: ' bg-orange-400 rounded-md px-3 py-1  text-white hover:bg-blue-600',
+                disabledLink: 'rounded-md px-3 py-1 bg-gray-200 text-gray-500',
+              },
         },
     },
 
     variants: {
         extend: {
             opacity: ['disabled'],
+
         },
     },
 

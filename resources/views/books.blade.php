@@ -14,8 +14,8 @@
                 <li class=""> <a href="{{ route('books.filter', 'all') }}"
                         class=" {{ 'all' == $link ? 'text-orange-600 font-semibold' : '' }}">All Genre</a> </li>
                 @foreach ($category as $i)
-                    <li class="flex items-center   "> <a href="{{ route('books.filter', $i->name) }} "
-                            class=" {{ $i->name == $link ? 'text-orange-600 font-semibold' : '' }}"> {{ $i->name }}
+                    <li class="flex items-center   "> <a href="{{ route('books.filter', $i->id) }} "
+                            class=" {{ $i->id == $link ? 'text-orange-600 font-semibold' : '' }}"> {{ $i->name }}
                         </a> </li>
                 @endforeach
     </ul>

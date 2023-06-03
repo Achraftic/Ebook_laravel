@@ -9,6 +9,8 @@ use App\Models\BooksCategory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\wishList;
+use App\Models\comment;
+
 class DashboardController extends Controller
 {
     /**
@@ -21,27 +23,30 @@ class DashboardController extends Controller
         $count = Books::count();
         $countCategory = BooksCategory::count();
         $data =  User::where('userType', "User")->get();
-        $category = BooksCategory::orderBy('name', 'asc')->select("name")->pluck('name')->toArray();
-$countMale= count(User::where('gender', "male")->get()->toArray()) ;
+        $category = BooksCategory::orderBy('id', 'asc')->select("name")->pluck('name')->toArray();
+        $countMale = count(User::where('gender', "male")->get()->toArray());
 
-$countFemale=count(User::where('gender', "female")->get()->toArray()) ;
+        $countFemale = count(User::where('gender', "female")->get()->toArray());
         $countrepeateBook = DB::table('books')
-            ->selectRaw(' COUNT(category) as count')
-            ->groupBy('category')
-            ->orderBy('category', 'asc')
+            ->selectRaw(' COUNT(categoryId) as count')
+            ->groupBy('categoryId')
+            ->orderBy('categoryId', 'asc')
             ->pluck('count')->toArray();
 
+            $countComments=comment::select('*')->get()->count();
 
-            // dd( $countrepeateBook = DB::table('wish_lists')
-            // ->selectRaw(' COUNT(books_id) as count')
-            // ->groupBy('user_id')
-            // ->orderBy('books_id', 'asc')
-            // ->having('count','>',"1")
-            // ->pluck('count')->toArray());
+        // dd( $mostBookAddToWishlist = DB::table('wish_lists')
+        // ->selectRaw('books_id, COUNT(books_id) as book_count')
+        // ->groupBy('books_id')
+        // ->orderByDesc('book_count')
+        // ->first()->books_id
 
-         $topReated=Books::where('rate',">=","4")->with('wish')->orderBy('rate',"desc")->get();
 
-        return view('admin.index', compact('count', 'data', 'category', 'countrepeateBook',"topReated","countCategory",'countFemale','countMale'));
+        // );
+
+        $topReated = Books::where('rate', ">=", "4")->take(5)->with('wish')->orderBy('rate', "desc")->get();
+
+        return view('admin.index', compact('count','countComments', 'data', 'category', 'countrepeateBook', "topReated", "countCategory", 'countFemale', 'countMale'));
     }
 
     public function search(Request $request)

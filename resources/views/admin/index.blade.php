@@ -57,7 +57,7 @@
                     <div class="ml-6">
                         <h3 class="mb-1 leading-5 text-gray-800 dark:text-gray-100 font-bold text-2xl"> {{$countCategory}} </h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm tracking-normal font-normal leading-5">
-                            Subscribers</p>
+                            Category</p>
                     </div>
                 </div>
             </a>
@@ -70,10 +70,10 @@
 
                     </div>
                     <div class="ml-6">
-                        <h3 class="mb-1 leading-5 text-gray-800 dark:text-gray-100 font-bold text-2xl">$1245
+                        <h3 class="mb-1 leading-5 text-gray-800 dark:text-gray-100 font-bold text-2xl">{{$countComments}}
                         </h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm tracking-normal font-normal leading-5">
-                            Profit Earned</p>
+                           Comments</p>
                     </div>
                 </div>
             </a>
@@ -156,7 +156,7 @@
                                     <div class="">{{$book->author}}</div>
                                 </td>
                                 <td class="p-3">
-                                    <div class=" "> {{$book->category}} </div>
+                                    <div class=" "> {{$book->category->name}} </div>
                                 </td>
 
                                 <td class="p-3 flex-nowrap">

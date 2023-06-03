@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\BooksCategory;
+
 class CategoryController extends Controller
 {
     /**
@@ -13,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data=BooksCategory::all();
-       return view('admin.category.index',compact('data'));
+        $data = BooksCategory::all();
+        return view('admin.category.index', compact('data'));
     }
 
     /**
@@ -24,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view ('admin.category.create');
+        return view('admin.category.create');
     }
 
     /**
@@ -36,7 +37,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $category = new BooksCategory();
-        $category->name=$request->name;
+        $category->name = $request->name;
         $category->save();
         return redirect()->route('category.index');
     }
@@ -49,7 +50,6 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -60,7 +60,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = BooksCategory::find($id);
+        
+        return view('admin.category.edit', compact('data'));
     }
 
     /**
@@ -72,7 +74,10 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category =  BooksCategory::find($id);
+        $category->name = $request->name;
+        $category->save();
+        return redirect()->route('category.index');
     }
 
     /**

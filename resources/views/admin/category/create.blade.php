@@ -11,7 +11,7 @@
 
     <section class="">
         <div class="mt-2 px-4 py-2 w-full space-y-4 max-w-9xl mx-auto flex flex-wrap justify-between items-center">
-            <h1 class="text-3xl md:text-4xl text-slate-800 font-bold">Add Book</h1>
+            <h1 class="text-3xl md:text-4xl text-slate-800 font-bold">Add  Category Book</h1>
         </div>
         <form action=" {{ route('category.store') }} " method="post" enctype="multipart/form-data"
             class=" bookscreate  p-8    gap-1   rounded-xl mx-auto   ">

@@ -20,7 +20,7 @@ class pageController extends Controller
 
     public function index()
     {
-        $records = DB::table('books')->take(6)->orderBy('created_at', 'asc')->get();
+        $records = DB::table('books')->take(6)->orderBy('created_at', 'desc')->get();
         $topReated= DB::table('books')->take(4)->orderBy('rate',"desc")->get();
 
         return view('welcome',compact('records','topReated'));

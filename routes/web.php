@@ -49,23 +49,29 @@ Route::prefix('books')->group(function () {
     Route::get('/book/create', [booksController::class,'create'] )->name('books.create');
     Route::post('/book/store', [booksController::class,'store'] )->name('books.store');
     Route::get('/book/delete/{id}', [booksController::class,'delete'] )->name('books.delete');
+    Route::get('/book/search', [booksController::class,'search'] )->name('books.search');
 
     ///for user
     Route::get('/', [booksController::class,'books'] )->name('books.index');
     Route::get('/book/test', [booksController::class,'test'] )->name('books.test');
     Route::get('/book/show/{id}', [booksController::class,'show'] )->name('books.show');
+    Route::get('/book/edit/{id}', [booksController::class,'edit'] )->name('books.edit');
+    Route::post('/book/update/{id}', [booksController::class,'update'] )->name('books.update');
     Route::get('/book/comment/add/{id}', [booksController::class,'commentadd'] )->name('books.add.comment');
     Route::get('/book/comment/{id}', [booksController::class,'comment'] )->name('books.comment');
+    Route::get('/book/downloadPdf/{id}', [booksController::class,'downloadPdf'] )->name('books.downloadPdf');
     Route::get('/filter/{id}', [booksController::class,'filter'] )->name('books.filter');
     //
     Route::get('/category', [CategoryController::class,'index'] )->name('category.index');
     Route::get('/category/create', [CategoryController::class,'create'] )->name('category.create');
     Route::post('/category/store', [CategoryController::class,'store'] )->name('category.store');
+    Route::get('/category/edit/{id}', [CategoryController::class,'edit'] )->name('category.edit');
+    Route::post('/category/update/{id}', [CategoryController::class,'update'] )->name('category.update');
 
 });
 Route::prefix('user')->group(function () {
     Route::get('/logout', [UsersController::class,'logout'] )->name('user.logout');
-    Route::get('/view', [UsersController::class,'index'] )->name('user.view');
+    Route::get('/view/', [UsersController::class,'index'] )->name('user.view');
     Route::get('/view/edit/{id}', [UsersController::class,'edit'] )->name('user.edit');
     Route::post('/view/update/{id}', [UsersController::class,'update'] )->name('user.update');
 
@@ -85,7 +91,7 @@ Route::get('/pdf/{filename}', function ($filename) {
     $response = response($file, 200)->header('Content-Type', 'application/pdf');
     $response->header('Content-Disposition', 'inline; filename="' . $filename . '"');
     return $response;
-});
+})->name('pdf.read');
 
 Route::prefix('wishlist')->group(function () {
     Route::get('/', [wishListController::class,'index'] )->name('wishlist.index');
